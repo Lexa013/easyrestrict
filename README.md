@@ -23,15 +23,19 @@
 When you are in the menu, right click on row and click "Remove"
 
 
+
 >Toggle the whitelist on/off
 
 On the top-right corner you have a checkbox called "Restrict status"
+
 >Change addon permissions
 
 On your group permissions management (ULX, ServerGuard & More) you have a category named **"CAMI"**, un/tick *to* dis/allow the permission to the group
+
 >I have accidently remove the permission to the superadmin group
 
 Don't panic on ulx you can type `ulx groupallow superadmin "er use"` on your server console to sole this.
+
 >I've forgot to add my SteamID64 to the whitelist and now im cant join my server.
 
 Stay calm, you can add someone to the whitelist with the server console using `er_add <name> <steamid64>`
