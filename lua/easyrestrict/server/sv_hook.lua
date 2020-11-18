@@ -26,13 +26,19 @@ end)
 
 hook.Add("CheckPassword", "EasyRestrict::CheckPassword", function(steamid, ip)
   if not GetConVar("er_restrict"):GetBool() then return end
-  if not table.HasValue(ER.GetDatabase(), steamid) then
-    return false, EasyRestrict.Config.kickMessage
+  local found = nil
+  for _, v in ipairs(ER.GetDatabase()) do
+    if v.steamid == steamid then
+      found = v
+      break
+    end
   end
+  
+  if not found then return false, EasyRestrict.Config.kickMessage end
 end)
 
 hook.Add("PlayerInitialSpawn", "EasyRestrict::Credits", function(ply)
-
+  ply:SendLua("print( 'This server is using EasyRestrict created by Lexa (github.com/Lexa013/easyrestrict) | discord.gg/gca' )")
 end)
 
 
