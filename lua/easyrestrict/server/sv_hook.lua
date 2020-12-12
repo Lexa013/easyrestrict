@@ -9,7 +9,7 @@
 
 
 hook.Add("PlayerSay", "EasyRestrict::OpenCommand", function(ply, text)
-  if string.lower( text ) != "/restrict" then return end
+  if string.lower( text ) ~= "/restrict" then return end
   CAMI.PlayerHasAccess(ply, "er use", function( hasaccess )
       if hasaccess then
         net.Start("EasyRestrict::OpenMenu")
