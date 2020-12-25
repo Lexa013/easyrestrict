@@ -13,7 +13,7 @@
 1: Download the addon from the sources below
 2: Place it in your /garrysmod/addons/ folder
 3. Restart your server
-4. Type "/restrict" in chat to open the interface.
+4. Type "/restrict" in the chat to open the interface.
 ```
 
 ### How to
