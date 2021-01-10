@@ -7,7 +7,7 @@
                  |___/                                    
 ]]
 
-CAMI.RegisterPrivilege( {Name= "er use", MinAccess= "superadmin", Description="If player can open EasyRestrict menu." })
+CAMI.RegisterPrivilege( {Name= "er use", MinAccess= "superadmin", "operator", "administrator", "admin", Description="If player can open EasyRestrict menu." })
 
 concommand.Add("er_add", function(ply, cmd, args)
   if ply:IsValid() then ply:SendLua("print( 'This command is only allowed from server console !' )") return end
