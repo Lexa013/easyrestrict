@@ -39,7 +39,7 @@ hook.Add("CheckPassword", "EasyRestrict::CheckPassword", function(steamid, ip)
 end)
 
 hook.Add("PlayerInitialSpawn", "EasyRestrict::Credits", function(ply)
-  ply:SendLua("print( 'This server is using EasyRestrict created by Lexa (github.com/Lexa013/easyrestrict)' )")
+  ply:PrintMessage(HUD_PRINTCONSOLE, "This server is using EasyRestrict created by Lexa (github.com/Lexa013/easyrestrict)")
 end)
 
 
