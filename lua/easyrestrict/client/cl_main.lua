@@ -75,9 +75,11 @@ local function openFrame(len)
         panel_askvalues:SetTitle("Add an entry")
         panel_askvalues:MakePopup()
         panel_askvalues:Center()
+
         frame.OnClose = function() -- Remove the frame when removing the base frame
             panel_askvalues:Remove()
         end
+        
         panel_askvalues.OnRemove = function()
             table.Empty(values)
             if not button_addwhitelist:IsValid() then return end -- prevent nil value 
@@ -114,11 +116,11 @@ local function openFrame(len)
         button_validateentry:SetText("Add entry")
         button_validateentry.DoClick = function()
             values.date = os.time()
-            list_whitelists:AddLine(values.name, values.steamid, os.date( "%d/%m/%Y - %H:%M:%S" , values.date ))
             net.Start("EasyRestrict::addEntry")
             local compressed = util.Compress(util.TableToJSON(values))
             net.WriteData(compressed, #compressed)
             net.SendToServer()
+            list_whitelists:AddLine(values.name, values.steamid, os.date( "%d/%m/%Y - %H:%M:%S" , values.date ))
             panel_askvalues:Remove()
         end
     end 

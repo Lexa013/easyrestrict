@@ -17,11 +17,11 @@ if SERVER then
     AddCSLuaFile("easyrestrict/sh_convar.lua")
 
 --Server Files
+    include("easyrestrict/sh_config_easyrestrict.lua")
     include("easyrestrict/server/sv_main.lua")
     include("easyrestrict/server/sv_function.lua")
     include("easyrestrict/server/sv_hook.lua")
     include("easyrestrict/server/sv_networking.lua")
-    include("easyrestrict/sh_config_easyrestrict.lua")
     include("easyrestrict/sh_convar.lua")
 else
     include("easyrestrict/sh_config_easyrestrict.lua")

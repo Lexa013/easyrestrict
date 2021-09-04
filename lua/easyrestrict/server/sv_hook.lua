@@ -10,17 +10,18 @@
 
 hook.Add("PlayerSay", "EasyRestrict::OpenCommand", function(ply, text)
   if string.lower( text ) ~= "/restrict" then return end
-  CAMI.PlayerHasAccess(ply, "er use", function( hasaccess )
-      if hasaccess then
-        net.Start("EasyRestrict::OpenMenu")
+
+      if ER.PlayerHaveAccess(ply) then
         local compressed = util.Compress(util.TableToJSON(ER.GetDatabase()))
+
+        net.Start("EasyRestrict::OpenMenu")
         ply:ChatPrint("Retrieving authorized players...")
         net.WriteData(compressed, #compressed)
         net.Send(ply)
       else
-        ply:ChatPrint("You don't have access to this permission")
+        ply:ChatPrint("Access denied !")
       end
-  end)
+
   return ""
 end)
 
@@ -38,7 +39,7 @@ hook.Add("CheckPassword", "EasyRestrict::CheckPassword", function(steamid, ip)
 end)
 
 hook.Add("PlayerInitialSpawn", "EasyRestrict::Credits", function(ply)
-  ply:SendLua("print( 'This server is using EasyRestrict created by Lexa (github.com/Lexa013/easyrestrict) | discord.gg/gca' )")
+  ply:SendLua("print( 'This server is using EasyRestrict created by Lexa (github.com/Lexa013/easyrestrict)' )")
 end)
 
 

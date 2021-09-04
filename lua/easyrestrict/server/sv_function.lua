@@ -24,3 +24,6 @@ function ER.GetDatabase()
           SELECT name, steamid, date FROM easyrestrict;") or {}
 end
 
+function ER.PlayerHaveAccess(ply)
+  return EasyRestrict.Config.allowedGroups[ply:GetUserGroup()]
+end
