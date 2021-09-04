@@ -7,12 +7,10 @@
                  |___/                                    
 ]]
 
-local basewithd, baseheight = ScrW() * 0.32, ScrH() * 0.45
-
 local function openFrame(len)
     -- Base frame
     local frame = vgui.Create("DFrame")
-    frame:SetSize(basewithd, baseheight)
+    frame:SetSize(ScrW() * 0.32, ScrH() * 0.45)
     frame:SetMinimumSize(ScrW() * 0.20, ScrH() * 0.15)
     frame:SetDraggable(true)
     frame:SetSizable(true)
